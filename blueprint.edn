@@ -6,4 +6,31 @@
  :itonami.blueprint/governor :market-entry-compliance-governor
  :itonami.blueprint/robotics false
  :itonami.blueprint/required-technologies [:identity :forms :dmn :bpmn :audit-ledger]
- :itonami.blueprint/status :public-oss}
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/maturity :implemented
+ :itonami.blueprint/implemented-slice
+ "src/marketentry/{facts,governor,store,registry,marketentryllm,operation,phase,sim}.cljc
+  -- MarketEntry-LLM (mock advisor) sealed behind a langgraph-clj
+  StateGraph (intake -> advise -> govern -> decide -> [request-approval] ->
+  commit|hold), censored by a 7-check Market-Entry Compliance Governor
+  (spec-basis, evidence-incomplete, rccm-entity-missing [flagship],
+  engagement-fee-mismatch, rccm-registration-unverified,
+  confidence-floor/actuation-gate, already-drafted/already-submitted),
+  Store protocol with MemStore + DatomicStore (built on
+  io.github.kotoba-lang/langchain-store, not a hand-rolled enc/dec*
+  codec), 0->3 phase rollout gate, and an append-only audit ledger.
+  `:filing/draft`/`:filing/submit` never auto-commit at any phase.
+  Facts catalog (src/marketentry/facts.cljc) is grounded exclusively in
+  the verified DJI dossier: CNMP (Commission Nationale des Marchés
+  Publics, https://marchespublics.gouv.dj/), Loi n°53/AN/09/6ème L
+  portant Code des Marchés Publics (1 July 2009), CNMP mandate per
+  Décret N° 2010-0083/PRE (modifié par Décret N° 2020-198/PRE), BOAMP
+  bulletin (no transactional e-procurement portal claimed), and RCCM
+  (Registre du Commerce et du Crédit Mobilier) under the OHADA treaty
+  framework via the CFE (Centre de Formalités des Entreprises). Test
+  suite: test/marketentry/{facts,governor_contract,store_contract,
+  registry,phase}_test.clj -- one test per governor rule, MemStore ≡
+  DatomicStore parity, pure-function registry coverage, and full
+  StateGraph end-to-end exercise for both a commit path
+  (clean-intake-auto-commits) and a hold path
+  (fabricated-jurisdiction-is-held / the 4 HARD-hold rule tests)."}
