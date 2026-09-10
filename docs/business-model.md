@@ -39,7 +39,7 @@ disclosure, and KYC documents filed with the Tribunal de Commerce.
 1. **Engagement intake** — normalize the operator's own case data
    (operator name, engagement fee terms). No new facts invented.
 2. **Jurisdiction assessment** — hand back the DJI evidence checklist
-   from `src/marketentry/facts.cljc`, always citing an official source
+   from `src/marketentry/facts.kotoba`, always citing an official source
    (`marchespublics.gouv.dj`, `rccm.ohada.org`). A jurisdiction not in
    the catalog gets NO checklist — the actor states plainly that it has
    no official spec-basis rather than guessing.

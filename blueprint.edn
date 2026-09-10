@@ -20,7 +20,7 @@
   io.github.kotoba-lang/langchain-store, not a hand-rolled enc/dec*
   codec), 0->3 phase rollout gate, and an append-only audit ledger.
   `:filing/draft`/`:filing/submit` never auto-commit at any phase.
-  Facts catalog (src/marketentry/facts.cljc) is grounded exclusively in
+  Facts catalog (src/marketentry/facts.kotoba) is grounded exclusively in
   the verified DJI dossier: CNMP (Commission Nationale des Marchés
   Publics, https://marchespublics.gouv.dj/), Loi n°53/AN/09/6ème L
   portant Code des Marchés Publics (1 July 2009), CNMP mandate per
