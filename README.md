@@ -17,7 +17,7 @@ clojure -M:dev:run    # demo driver (marketentry.sim)
 ```
 
 Regulatory grounding (verified against `.dj` government domains and the
-ILO NATLEX legal database -- see `src/marketentry/facts.cljc` for full
+ILO NATLEX legal database -- see `src/marketentry/facts.cljk` for full
 citations):
 
 - **CNMP** -- Commission Nationale des Marchés Publics, the public
@@ -43,7 +43,7 @@ regional-culture catalog** (ADR-2607171400 addendum 2,
 `com-junkawasaki/root`) — national dishes, protected products,
 beverages, crafts, festivals and heritage sites for Djibouti:
 
-- `src/culture/facts.cljc` — the catalog, source of truth (keyed by
+- `src/culture/facts.cljk` — the catalog, source of truth (keyed by
   uppercase ISO3, mirroring `marketentry.facts`' convention).
 - `schema/culture.edn` — DataScript schema.
 - `data/culture-tx.edn` — derived DataScript tx-data (regenerated from
